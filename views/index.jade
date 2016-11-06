@@ -1,0 +1,230 @@
+- var datas = res
+- var to = url
+- var baseTo = baseUrl
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7  
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8  
+//if IE 8
+  html.no-js.lt-ie9  
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{title}
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Free HTML5 Template by FREEHTML5.CO')
+    meta(name='keywords', content='free html5, free template, free bootstrap, html5, css3, mobile first, responsive')
+    meta(name='author', content='FREEHTML5.CO')
+    // Facebook and Twitter integration
+    meta(property='og:title', content='')
+    meta(property='og:image', content='')
+    meta(property='og:url', content='')
+    meta(property='og:site_name', content='')
+    meta(property='og:description', content='')
+    meta(name='twitter:title', content='')
+    meta(name='twitter:image', content='')
+    meta(name='twitter:url', content='')
+    meta(name='twitter:card', content='')
+    // Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel='shortcut icon', href='favicon.ico')
+    // Google Webfont
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text', rel='stylesheet', type='text/css')
+    // Themify Icons
+    link(rel='stylesheet', href='css/themify-icons.css')
+    // Bootstrap
+    link(rel='stylesheet', href='css/bootstrap.css')
+    // Owl Carousel
+    link(rel='stylesheet', href='css/owl.carousel.min.css')
+    link(rel='stylesheet', href='css/owl.theme.default.min.css')
+    // Magnific Popup
+    link(rel='stylesheet', href='css/magnific-popup.css')
+    // Superfish
+    link(rel='stylesheet', href='css/superfish.css')
+    // Easy Responsive Tabs
+    link(rel='stylesheet', href='css/easy-responsive-tabs.css')
+    // Theme Style
+    link(rel='stylesheet', href='css/style.css')
+    // FOR IE9 below
+    //if lt IE 9
+      script(src='js/modernizr-2.6.2.min.js')
+      script(src='js/respond.min.js')
+  body.inner-page
+    // START #fh5co-header
+    header#fh5co-header-section(role='header')
+      .container
+        // START #fh5co-logo
+        h1#fh5co-logo.pull-left
+          a(href= baseTo) #{title}
+        // START #fh5co-menu-wrap
+        nav#fh5co-menu-wrap(role='navigation')
+          ul#fh5co-primary-menu.sf-menu
+            li
+              a(href= baseTo) Home
+            li.active
+              a.fh5co-sub-ddown(href='#') Dropdown
+              ul.fh5co-sub-menu
+                li.active
+                  a(href='left-sidebar.html') Left Sidebar
+                li
+                  a(href='right-sidebar.html') Right Sidebar
+                li
+                  a(href='#') HTML5
+                li
+                  a.fh5co-sub-ddown(href='#') JavaScript
+                  ul.fh5co-sub-menu
+                    li
+                      a(href='#') jQuery
+                    li
+                      a(href='#') Zipto
+                    li
+                      a(href='#') Node.js
+                    li
+                      a(href='#') AngularJS
+                li
+                  a(href='#') CSS3
+            li
+              a(href='elements.html') Elements
+            li
+              a(href='contact.html') Contact
+    // START #fh5co-hero
+    aside#fh5co-hero(style='background-image: url(images/hero.jpg);')
+      .container
+        .row
+          .col-md-8.col-md-offset-2
+            .fh5co-hero-wrap
+              .fh5co-hero-intro
+                h2
+                  | Inner Page
+                  span
+                h1 #{title}
+    #fh5co-main
+      section
+        .container
+          .row
+            #fh5co-content.col-md-8.col-md-offset-1.col-md-push-3
+              .row
+                each val in datas.new
+                  .col-md-12
+                    if(val.picture)
+                      h2= val.title
+                      .col-md-4.col-sm-4
+                        a(href = '#')
+                          img.img-responsive(src= val.picture, alt='Image')
+                      .col-md-8.col-sm-8
+                        p= val.content_description
+                        p
+                          a.btn.btn-primary.btn-sm(href= to+val.uri) Read More
+                    else
+                        h2= val.title
+                        p= val.content_description
+                        p
+                          a.btn.btn-primary.btn-sm(href= to+val.uri) Read More
+                  .fh5co-spacer.fh5co-spacer-xs
+                .fh5co-tab.text-center
+                  ul.resp-tabs-list.hor_1
+                    each p in datas.pagination.data
+                      if(p.url == "#")
+                        li
+                          if(p.text == 'prev')
+                            span.glyphicon.glyphicon-chevron-left
+                          else if(p.text == 'next')
+                            span.glyphicon.glyphicon-chevron-right
+                          else
+                            if(datas.pagination.page == p.text)
+                              .resp-tab-active= p.text
+                            else
+                              = p.text
+                      else
+                        a(href=p.url)
+                          li
+                            if(p.text == 'prev')
+                              span.glyphicon.glyphicon-chevron-left
+                            else if(p.text == 'next')
+                              span.glyphicon.glyphicon-chevron-right
+                            else
+                              if(datas.pagination.page == p.text)
+                                .resp-tab-active= p.text
+                              else
+                                = p.text
+              .fh5co-spacer.fh5co-spacer-sm
+            #fh5co-sidebar.col-md-3.col-md-pull-9
+              .fh5co-side-section.fh5co-nav-links
+                h2.fh5co-uppercase-heading-sm Categorys
+                ul
+                  each val in datas.categorys
+                    li
+                      a(href='#')= val.name
+
+              .fh5co-spacer.fh5co-spacer-sm
+              .fh5co-side-section
+                h2.fh5co-uppercase-heading-sm Sweet Little <p>
+                p
+                  | Magnam consectetur quia illo rerum aliquam doloremque omnis assumenda quasi enim ex totam provident dignissimos numquam laudantium
+                p
+                  a(href='#') Go! click me
+              .fh5co-spacer.fh5co-spacer-sm
+              .fh5co-side-section
+                h2.fh5co-uppercase-heading-sm Image Magnific Popup
+                .fh5co-spacer.fh5co-spacer-xxs
+                .row
+                  .col-md-12
+                    p
+                      a.image-popup(href='images/project_5.jpg')
+                        img.img-responsive(src='images/project_5.jpg', alt='Image')
+                  .col-md-6
+                    p
+                      a.image-popup(href='images/project_6.jpg')
+                        img.img-responsive(src='images/project_6.jpg', alt='Image')
+                  .col-md-6
+                    a.image-popup(href='images/project_7.jpg')
+                      img.img-responsive(src='images/project_7.jpg', alt='Image')
+                    p
+          .fh5co-spacer.fh5co-spacer-md
+      footer#fh5co-footer
+        .container
+          ul.fh5co-social-icons
+            li
+              a(href='#')
+                i.ti-twitter-alt
+            li
+              a(href='#')
+                i.ti-facebook
+            li
+              a(href='#')
+                i.ti-github
+            li
+              a(href='#')
+                i.ti-linkedin
+          p.text-muted.fh5co-no-margin-bottom.text-center
+            small
+              | © 2015 
+              a(href='#') Display
+              | . All rights reserved. Crafted with love 
+              em by
+              a(href='http://freehtml5.co', target='_blank') FREEHTML5.co
+              br
+              |  Images by 
+              a(href='http://unsplash.com/', target='_blank') Unsplash
+    // jQuery
+    script(src='js/jquery-1.10.2.min.js')
+    // jQuery Easing
+    script(src='js/jquery.easing.1.3.js')
+    // Bootstrap
+    script(src='js/bootstrap.js')
+    // Owl carousel
+    script(src='js/owl.carousel.min.js')
+    // Magnific Popup
+    script(src='js/jquery.magnific-popup.min.js')
+    // Superfish
+    script(src='js/hoverIntent.js')
+    script(src='js/superfish.js')
+    // Easy Responsive Tabs
+    script(src='js/easyResponsiveTabs.js')
+    // FastClick for Mobile/Tablets
+    script(src='js/fastclick.js')
+    // Main JS
+    script(src='js/main.js')

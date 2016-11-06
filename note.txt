@@ -1,0 +1,22 @@
+data-type{
+	content-description : deskipsi content yang publish (hanya text);
+	text : tampilan full text;
+	left-image : tampilan satu gambar di kiri;
+	right-image : tampilan satu gambar di kanan;
+	top-image : tampilan satu gambar di atas;
+	bottom-image : tampilan satu gambar di bawah;
+	list-image : tampilan list gambar (vetical);
+	list-images-text : tampilan list gambar dengan text dalam gambar (vetical);
+	list-images-text-rignt : tampilan list gambar dengan text dikanan gambar (vetical);
+	list-images-text-left : tampilan list gambar dengan text dikiri gambar (vetical);
+	gird-image : tampilan gird gambar (horizontal);
+	gird-images-text : tampilan gird gambar dengan text dalam gambar (horizontal);
+	gird-images-text-bottom : tampilan gird gambar dengan text dibawah gambar (horizontal);
+	gird-images-text-top : tampilan gird gambar dengan text diatas gambar (horizontal);
+	code : tampilan coding;
+	spacer : tampilan kosong;
+	list-text-ul : list text unorder
+	list-text-ol : list text order
+	code : tampilan code
+
+}
