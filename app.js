@@ -8,8 +8,10 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var content = require('./routes/content');
+var category = require('./routes/category');
 BaseUrl = "http://localhost:4000/";
-BaseApiUrl = "http://localhost:3000/api/";
+// BaseApiUrl = "http://localhost:3000/api/";
+BaseApiUrl = "http://setyatmoko.id:3000/api/";
 
 var app = express();
 
@@ -30,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/content', content);
 app.use('/users', users);
+app.use('/category', category);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
